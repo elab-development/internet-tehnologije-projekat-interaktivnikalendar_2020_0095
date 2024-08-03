@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('event_categories', function (Blueprint $table) {
-            //
+            $table->string('name')->unique(); 
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('event_categories', function (Blueprint $table) {
-            //
+            $table->dropColumn('name'); 
         });
     }
 };

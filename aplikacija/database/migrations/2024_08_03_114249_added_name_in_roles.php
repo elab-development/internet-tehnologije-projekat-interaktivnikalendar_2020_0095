@@ -6,23 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::table('roles', function (Blueprint $table) {
-            //
+            $table->string('name')->unique(); 
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+ 
+    public function down()
     {
         Schema::table('roles', function (Blueprint $table) {
-            //
+            $table->dropColumn('name'); 
         });
     }
 };

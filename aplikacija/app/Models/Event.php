@@ -22,4 +22,14 @@ class Event extends Model
         'end_time' => 'datetime',
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(EventCategory::class);
+    }
+
 }
