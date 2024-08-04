@@ -17,6 +17,10 @@ class Event extends Model
         'category_id',
     ];
 
+    protected $guarded = [ 
+        'user_id' //ovo smo dodale da user ne moze da unosi sam svoj ID
+    ];
+
     protected $casts = [
         'start_time' => 'datetime',
         'end_time' => 'datetime',

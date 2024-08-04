@@ -12,6 +12,10 @@ class EventCategory extends Model
         'name',
     ];
 
+    protected $guarded = [ 
+        'id' //ovo smo dodale da user ne moze da unosi sam svoj ID
+    ];
+
     public function events()
     {
         return $this->hasMany(Event::class);
