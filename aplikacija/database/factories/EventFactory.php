@@ -17,7 +17,12 @@ class EventFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => $this->faker->title(), 
+            'description' => $this->faker->paragraph(), 
+            'start_time'=> $this->faker->time(), 
+            'end_time' => $this->faker->time(), 
+            'user_id'=> User::factory(), 
+            'category_id'=> EventCategory::factory(),
         ];
     }
 }

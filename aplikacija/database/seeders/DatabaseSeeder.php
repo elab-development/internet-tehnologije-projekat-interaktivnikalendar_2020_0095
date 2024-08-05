@@ -15,7 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-       User::factory(1)->create();
+        /*User::truncate();
+        Role::truncate();
+        Event::truncate();
+        EventCategory::truncate();*/
+
+       //User::factory(1)->create();
 
        /*User::factory(1)->create([
             'name' => 'Marko',
@@ -27,6 +32,7 @@ class DatabaseSeeder extends Seeder
         ]);*/
 
         $this->call([
+            UserSeeder::class,
             RoleSeeder::class,
             EventCategorySeeder::class,
             EventSeeder::class,

@@ -1,11 +1,11 @@
 <?php
 
 namespace Database\Seeders;
-
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+ 
 use Illuminate\Database\Seeder;
 use App\Models\Event;
-
+use App\Models\User;
+use App\Models\EventCategory; 
 class EventSeeder extends Seeder
 {
     /**
@@ -13,31 +13,23 @@ class EventSeeder extends Seeder
      */
     public function run(): void
     {
-        Event::create([
-            'title' => 'Laravel Conference',
-            'description' => 'Annual Laravel Conference',
-            'start_time' => now(),
-            'end_time' => now()->addHours(2),
-            'user_id' => 1,
-            'category_id' => 1 
-        ]);
 
-        Event::create([
-            'title' => 'React Workshop',
-            'description' => 'Hands-on React Workshop',
-            'start_time' => now()->addDay(),
-            'end_time' => now()->addDay()->addHours(2),
-            'user_id' => 2,
-            'category_id' => 2 
-        ]);
-
-        Event::create([
-            'title' => 'Developer Meetup',
-            'description' => 'Monthly Developer Meetup',
-            'start_time' => now()->addWeek(),
-            'end_time' => now()->addWeek()->addHours(3),
-            'user_id' => 3,
-            'category_id' => 3 
-        ]);
+        for ($i = 0; $i < 10; $i++) {
+            
+            $randomUserId = User::inRandomOrder()->first()->id;
+ 
+            
+            $randomCategoryId = EventCategory::inRandomOrder()->first()->id;
+ 
+            Event::create([
+                'title' => 'Event ' . ($i + 1),
+                'description' => 'Description for Event ' . ($i + 1),
+                'start_time' => now()->addDays($i),
+                'end_time' => now()->addDays($i)->addHours(2),
+                'user_id' => $randomUserId,
+                'category_id' => $randomCategoryId,
+            ]);
+        }
     }
 }
+
