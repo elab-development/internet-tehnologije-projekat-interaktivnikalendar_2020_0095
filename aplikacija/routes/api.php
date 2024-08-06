@@ -26,11 +26,11 @@ Route::put('/users/{id}', [UserController::class, 'update']); // Update user
 Route::delete('/users/{id}', [UserController::class, 'destroy']); // Delete user
 
 // Event routes
-Route::get('/events', [EventController::class, 'index']); // Get all events
-Route::get('/events/{id}', [EventController::class, 'show']); // Get a single event
-Route::post('/events', [EventController::class, 'store']); // Create a new event
-Route::put('/events/{id}', [EventController::class, 'update']); // Update event
-Route::delete('/events/{id}', [EventController::class, 'destroy']); // Delete event
+Route::get('/events', [EventController::class, 'index']);
+Route::get('/events/{event}', [EventController::class, 'show']);
+Route::post('/events', [EventController::class, 'store']);
+Route::put('/events/{event}', [EventController::class, 'update']);
+Route::delete('/events/{event}', [EventController::class, 'destroy']);
 
 // Event Category routes
 Route::get('/event-categories', [EventCategoryController::class, 'index']); // Get all event categories
