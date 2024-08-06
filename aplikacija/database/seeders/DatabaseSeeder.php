@@ -15,21 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        /*User::truncate();
-        Role::truncate();
-        Event::truncate();
-        EventCategory::truncate();*/
-
-       //User::factory(1)->create();
-
-       /*User::factory(1)->create([
-            'name' => 'Marko',
-            'email' => 'marko@example.com',
-            'email_verified_at' => now(),
-            'password' => Hash::make('marko123'),
-            'remember_token' => Str::random(10),
-            'last_name' => 'Markovic', 
-        ]);*/
+        
 
         $this->call([
             UserSeeder::class,
