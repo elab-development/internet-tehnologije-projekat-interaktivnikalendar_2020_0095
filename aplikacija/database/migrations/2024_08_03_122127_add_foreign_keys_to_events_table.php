@@ -11,6 +11,7 @@ class AddForeignKeysToEventsTable extends Migration
         Schema::table('events', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('event_categories')->onDelete('cascade');
+          
         });
     }
  

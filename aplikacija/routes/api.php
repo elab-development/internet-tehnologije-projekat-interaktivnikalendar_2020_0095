@@ -20,30 +20,43 @@
 
 
 // User routes
-Route::get('/users', [UserController::class, 'index']); // Get all users
-Route::get('/users/{id}', [UserController::class, 'show']); // Get a single user
-Route::put('/users/{id}', [UserController::class, 'update']); // Update user
-Route::delete('/users/{id}', [UserController::class, 'destroy']); // Delete user
+Route::get('/users', [UserController::class, 'index']); // Prikazi sve korisnike
+Route::get('/users/{id}', [UserController::class, 'show']); // Prikazi jednog korisnika
+Route::put('/users/{id}', [UserController::class, 'update']); // Update za jednog korisnika
+Route::delete('/users/{id}', [UserController::class, 'destroy']); // Brisanje jednog korisnika
 
 // Event routes
-Route::get('/events', [EventController::class, 'index']);
 Route::get('/events/{event}', [EventController::class, 'show']);
 Route::post('/events', [EventController::class, 'store']);
 Route::put('/events/{event}', [EventController::class, 'update']);
-Route::delete('/events/{event}', [EventController::class, 'destroy']);
+Route::delete('/events/{id}', [EventController::class, 'destroy']);
+
 
 // Event Category routes
-Route::get('/event-categories', [EventCategoryController::class, 'index']); // Get all event categories
-Route::get('/event-categories/{id}', [EventCategoryController::class, 'show']); // Get a single category
-Route::put('/event-categories/{id}', [EventCategoryController::class, 'update']); // Update category
-Route::delete('/event-categories/{id}', [EventCategoryController::class, 'destroy']); // Delete category
+Route::get('/event-categories', [EventCategoryController::class, 'index']); // Prikaz svih kategorija dogadjaja
+Route::get('/event-categories/{id}', [EventCategoryController::class, 'show']); // Prikaz jedne kategorije dogadjaja
+Route::put('/event-categories/{id}', [EventCategoryController::class, 'update']); // Izmena postojece kategorije dogadjaja
 
 // User Role routes
-Route::get('/user-roles', [RoleController::class, 'index']); // Get all user roles
-Route::get('/user-roles/{id}', [RoleController::class, 'show']); // Get a single role
-Route::put('/user-roles/{id}', [RoleController::class, 'update']); // Update role
-Route::delete('/user-roles/{id}', [RoleController::class, 'destroy']); // Delete role
+Route::get('/user-roles', [RoleController::class, 'index']); // Prikazivanje svih uloga korisnika
+Route::get('/user-roles/{id}', [RoleController::class, 'show']); // Prikazivanje jedne uloge korisnika
+
 
 //Registracija
 Route::post('/register', [AuthController::class, 'register']); 
+
+//Logovanje
+Route::post('/login', [AuthController::class, 'login']);
+
+//Logout
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('/profile', function(Request $request) {
+        return auth()->user();
+    });
+    Route::resource('events', EventController::class)->only(['update','store','destroy']);
+ 
+    // API route for logout user
+    Route::post('/logout', [AuthController::class, 'logout']);
+});
+
  

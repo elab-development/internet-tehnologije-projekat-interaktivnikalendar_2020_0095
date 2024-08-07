@@ -23,8 +23,7 @@ class UserController extends Controller
         return response()->json($user, 200);
     }
 
-   
-    public function update(Request $request, $id)
+   public function update(Request $request, $id)
     {
         $user = User::find($id);
         if (!$user) {
@@ -54,9 +53,8 @@ class UserController extends Controller
         if (!$user) {
             return response()->json(['error' => 'User not found'], 404);
         }
-
         $user->delete();
-        return response()->json(null, 204);
+        return response()->json($user, 200);
     }
 }
 

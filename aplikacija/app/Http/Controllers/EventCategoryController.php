@@ -27,6 +27,7 @@ class EventCategoryController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255|unique:event_categories'
+            
         ]);
 
         if ($validator->fails()) {

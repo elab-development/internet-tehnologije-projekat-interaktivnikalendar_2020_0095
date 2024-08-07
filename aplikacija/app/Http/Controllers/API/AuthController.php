@@ -41,7 +41,7 @@ class AuthController extends Controller
     }
 
  
-    /*public function login(Request $request)
+    public function login(Request $request)
     {
         if(!Auth::attempt($request->only('email','password'))){
             return response()->json(['message'=> 'Unauthorized'], 401);
@@ -51,12 +51,12 @@ class AuthController extends Controller
  
         $token = $user->createToken('auth_token')->plainTextToken;
  
-        return response()->json(['data'=> $user, 'access_token'=> $token, 'token_type'=> 'Bearer']);
-    }*/
+        return response()->json(['message'=> 'Hi '.$user->name.' welcome to your business calendar!','token' => $token]);
+    }
  
-    /*public function logout(Request $request)
+    public function logout(Request $request)
     {
        $request->user()->tokens()->delete();
        return response()->json(['message'=> 'Successfully logged out!']);
-    }*/
+    }
 }
