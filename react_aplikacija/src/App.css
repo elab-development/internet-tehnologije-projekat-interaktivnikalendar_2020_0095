@@ -1,4 +1,4 @@
-.App {
+/*.App {
   text-align: center;
 }
 
@@ -34,5 +34,42 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}*/
+
+/* Navbar container */
+.navBar {
+  background-color: #7dcea0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+ 
+/* Navbar items */
+.navBarItem {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+ 
+.navBarItem:hover {
+  background-color: #5da88a;
+  transform: scale(1.05);
+  border-radius: 5px;
+}
+ 
+/* Responsive design */
+@media (max-width: 768px) {
+  .navBar {
+    flex-direction: column;
+  }
+ 
+  .navBarItem {
+    margin: 5px 0;
+    width: 100%;
+    text-align: center;
   }
 }
