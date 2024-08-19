@@ -334,3 +334,80 @@ body, html {
   background-color: #e68a00; 
 }
 
+
+
+.all-events-container {
+  padding: 20px;
+}
+
+.allEventsTitle {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 40;
+  color: white;
+  font:bold;
+}
+
+.events-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+
+.event-item {
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row; 
+  border-radius: 8px;
+  align-items: center;
+   border: 1px solid #ddd;
+  justify-content: space-between;
+}
+
+.event-date {
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 15px;
+  min-width: 150px;
+  color: #e08f00;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; 
+  width: 100%; 
+}
+
+.event-title {
+  font-size: 18px;
+  font-weight: bold;
+  flex: 2; 
+}
+
+.event-description {
+  font-size: 14px;
+  color: #555;
+  flex: 3; 
+}
+
+.event-time {
+  font-size: 20px;
+  font:bold;
+  color: gray;
+  flex: 1; 
+  text-align: right; 
+  margin-right: 10px;
+}
+
+.event-checkbox {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
