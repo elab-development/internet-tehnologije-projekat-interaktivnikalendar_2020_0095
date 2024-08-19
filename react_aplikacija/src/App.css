@@ -45,7 +45,8 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden; 
+  overflow: hidden;
+  background-color: #84c0b8; 
 }
  
 
@@ -90,6 +91,7 @@ body, html {
   align-items: center;
 }
  
+/*
 .login-container {
   padding: 20px;
   background: #fff; 
@@ -150,4 +152,156 @@ body, html {
     max-width: 90%; 
   }
 }
+*/
+/* src/components/Login.css */
+.login-form {
+  
+  max-width: 400px; /* Increased width for the form */
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Rounded corners for a modern look */
+  background-color: #fff; /* Background color for the form */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for depth */
+}
 
+.login-title {
+  color: #f39c12; /* Mustard color for the title */
+  margin-bottom: 20px; /* Space between title and form fields */
+}
+
+.input-group {
+  margin-bottom: 15px; /* Space between input fields */
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px; /* Increased padding for better usability */
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #f39c12; /* Mustard color for the button */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px; /* Slightly larger font size for the button text */
+}
+
+.submit-button:hover {
+  background-color: #e67e22; /* Darker mustard color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-form {
+    max-width: 90%; /* Make form take more space on smaller screens */
+  }
+}
+
+.calendar-title{
+  background-color: #f39c12;
+  color: white;
+}
+
+/* Center the calendar on the page */
+.calendar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh; /* Full viewport height to center vertically */
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: #5da8a0;
+}
+
+.react-calendar__tile--active {
+  background: #5da8a0;
+}
+
+.react-calendar__tile--now {
+  background: #e67e22;
+}
+
+.calendarjsx{
+  background-color: #84c0b8;
+}
+
+.react-calendar{
+  border: 4px solid #e67e22;
+  max-width: 1000px; 
+  max-height: 800px;
+  height: 100%;
+  width: 100%; 
+}
+
+.react-calendar__month-view__weekdays {
+  height: 70px;
+}
+
+.react-calendar__navigation button[aria-label] {
+  font-weight: bold;  /* Makes the month and year bold */
+  font-size: 1.25em;  /* Increases the font size */
+  color: #5da8a0;     /* Custom color for the month and year text */
+}
+
+/* Container for the dashboard content */
+.dashboard-content {
+  text-align: center; /* Center the text horizontally */
+  margin-top: 20px; /* Add some space at the top */
+  padding: 20px; /* Add some padding around the content */
+}
+
+/* Style for the header above the quote */
+.dashboard-content h3 {
+  font-size: 40px; /* Increase font size for the header */
+  color: #555; /* White color for the header text */
+  font-weight: bold; /* Make the header text bold */
+  margin-bottom: 20px; /* Add space below the header */
+}
+
+/* Style for the motivational quote */
+.dashboard-content p {
+  font-size: 50px; /* Increase font size for the quote */
+  color: #fff; /* White color for the quote text */
+  font-style: italic; /* Italicize the quote text */
+  font-weight: bold; /* Make the quote text bold */
+  max-width: 80%; /* Limit the width of the quote */
+  margin: 0 auto; /* Center the quote horizontally */
+  line-height: 1.5; /* Add space between lines */
+  font-family: 'Georgia', serif; /* Use an elegant font */
+}
+
+/* Rhombuses on the sides */
+.rhombus {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px; /* Width of the rhombus */
+  background: #f39c12; /* Mustard color */
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Create rhombus shape */
+}
+
+/* Left rhombus */
+.rhombus-left {
+  left: 0;
+  transform: translateX(-50%); /* Center the rhombus on the left side */
+}
+
+/* Right rhombus */
+.rhombus-right {
+  right: 0;
+  transform: translateX(50%); /* Center the rhombus on the right side */
+}

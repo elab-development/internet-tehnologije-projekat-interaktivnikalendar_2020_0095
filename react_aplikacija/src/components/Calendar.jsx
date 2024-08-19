@@ -10,12 +10,16 @@ const CalendarPage = () => {
   };
 
   return (
+    <div className='calendarjsx'>
+      
+      <h2 className='calendar-title'>Calendar</h2>
     <div className="calendar-container">
-      <h2>Calendar</h2>
+      
       <Calendar
         onChange={handleDateChange}
         value={date}
       />
+    </div>
     </div>
   );
 };

@@ -56,7 +56,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <NavBar /> {/* Pretpostavljam da je to nav bar sa Login i Calendar */}
+        {/*<NavBar /> {/* Pretpostavljam da je to nav bar sa Login i Calendar }*/}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />

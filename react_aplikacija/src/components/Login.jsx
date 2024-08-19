@@ -15,32 +15,35 @@ const Login = () => {
   };
  
   return (
-<div style={{ maxWidth: '400px', margin: '0 auto', padding: '20px', border: '1px solid #ccc', borderRadius: '5px' }}>
-<h2>Login</h2>
-<form onSubmit={handleSubmit}>
-<div style={{ marginBottom: '10px' }}>
-<label htmlFor="username" style={{ display: 'block', marginBottom: '5px' }}>Username:</label>
+<div style={{ maxWidth: '400px', margin: '0 auto', padding: '20px', border: '1px solid #ccc', borderRadius: '5px', backgroundColor:'white'}}>
+<h2 className='login-title'>Login</h2>
+<form onSubmit={handleSubmit} className='login-form'>
+<div style={{ marginBottom: '10px' }} className='input-group'>
+<label htmlFor="username"  className = 'input-label'>Username:</label>
 <input
+             className='input-field'
             type="text"
             id="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
+            
             required
           />
 </div>
 <div style={{ marginBottom: '10px' }}>
-<label htmlFor="password" style={{ display: 'block', marginBottom: '5px' }}>Password:</label>
+<label htmlFor="password"  className = 'input-label'>Password:</label>
 <input
+            className='input-field'
             type="password"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
+            
             required
           />
 </div>
-<button type="submit" style={{ width: '100%', padding: '10px', borderRadius: '4px', backgroundColor: '#5da8a0', color: '#fff', border: 'none', cursor: 'pointer' }}>
+<button type="submit" style={{ width: '100%', padding: '10px', borderRadius: '4px', border: 'none', cursor: 'pointer' }}
+        className='submit-button'>
           Login
 </button>
 </form>
