@@ -2,7 +2,6 @@
   text-align: center;
 }
 
-
 .navBar {
   background-color: #5da8a0;
   padding: 10px;
@@ -11,7 +10,6 @@
   align-items: center;
 }
  
-
 .navBarItem {
   color: rgb(255, 255, 255);
   text-decoration: none;
@@ -26,7 +24,6 @@
   border-radius: 5px;
 }
  
-
 @media (max-width: 768px) {
   .navBar {
     flex-direction: column;
@@ -39,8 +36,6 @@
   }
 }
 
-
-
 body, html {
   margin: 0;
   padding: 0;
@@ -49,7 +44,6 @@ body, html {
   background-color: #84c0b8; 
 }
  
-
 .hero-container {
   position: relative;
   text-align: center;
@@ -59,7 +53,6 @@ body, html {
   overflow: hidden; 
 }
  
-
 .hero-image {
   width: 100%;
   height: 100%;
@@ -67,7 +60,6 @@ body, html {
   display: block; 
 }
  
-
 .hero-text {
   position: absolute;
   top: 50%;
@@ -82,7 +74,6 @@ body, html {
   max-width: 90%; 
 }
 
-
 .login-page {
   background-color: #5da8a0; 
   min-height: 100vh; 
@@ -91,15 +82,8 @@ body, html {
   align-items: center;
 }
  
-/*
-.login-container {
-  padding: 20px;
-  background: #fff; 
-  border-radius: 8px; 
-}
-
-
 .login-form {
+  
   max-width: 400px; 
   margin: 0 auto;
   padding: 20px;
@@ -108,21 +92,21 @@ body, html {
   background-color: #fff; 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
- 
+
 .login-title {
   color: #f39c12; 
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
- 
+
 .input-group {
   margin-bottom: 15px; 
 }
- 
+
 .input-label {
   display: block;
   margin-bottom: 5px;
 }
- 
+
 .input-field {
   width: 100%;
   padding: 10px; 
@@ -130,7 +114,7 @@ body, html {
   border: 1px solid #ccc;
   box-sizing: border-box; 
 }
- 
+
 .submit-button {
   width: 100%;
   padding: 10px;
@@ -141,85 +125,22 @@ body, html {
   cursor: pointer;
   font-size: 16px; 
 }
- 
+
 .submit-button:hover {
-  background-color: #e67e22; 
+  background-color: #e67e22;
 }
- 
 
 @media (max-width: 768px) {
   .login-form {
     max-width: 90%; 
   }
 }
-*/
-/* src/components/Login.css */
-.login-form {
-  
-  max-width: 400px; /* Increased width for the form */
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px; /* Rounded corners for a modern look */
-  background-color: #fff; /* Background color for the form */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for depth */
-}
 
-.login-title {
-  color: #f39c12; /* Mustard color for the title */
-  margin-bottom: 20px; /* Space between title and form fields */
-}
-
-.input-group {
-  margin-bottom: 15px; /* Space between input fields */
-}
-
-.input-label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.input-field {
-  width: 100%;
-  padding: 10px; /* Increased padding for better usability */
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  box-sizing: border-box; /* Ensure padding is included in width */
-}
-
-.submit-button {
-  width: 100%;
-  padding: 10px;
-  border-radius: 4px;
-  background-color: #f39c12; /* Mustard color for the button */
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  font-size: 16px; /* Slightly larger font size for the button text */
-}
-
-.submit-button:hover {
-  background-color: #e67e22; /* Darker mustard color on hover */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .login-form {
-    max-width: 90%; /* Make form take more space on smaller screens */
-  }
-}
-
-.calendar-title{
-  background-color: #f39c12;
-  color: white;
-}
-
-/* Center the calendar on the page */
 .calendar-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh; /* Full viewport height to center vertically */
+  height: 50vh; 
 }
 
 .react-calendar__tile--active:enabled:hover,
@@ -252,56 +173,164 @@ body, html {
 }
 
 .react-calendar__navigation button[aria-label] {
-  font-weight: bold;  /* Makes the month and year bold */
-  font-size: 1.25em;  /* Increases the font size */
-  color: #5da8a0;     /* Custom color for the month and year text */
+  font-weight: bold;  
+  font-size: 1.25em;  
+  color: #5da8a0;    
 }
 
-/* Container for the dashboard content */
 .dashboard-content {
-  text-align: center; /* Center the text horizontally */
-  margin-top: 20px; /* Add some space at the top */
-  padding: 20px; /* Add some padding around the content */
+  text-align: center;
+  margin-top: 20px; 
+  padding: 20px; 
 }
 
-/* Style for the header above the quote */
 .dashboard-content h3 {
-  font-size: 40px; /* Increase font size for the header */
-  color: #555; /* White color for the header text */
-  font-weight: bold; /* Make the header text bold */
-  margin-bottom: 20px; /* Add space below the header */
+  font-size: 40px; 
+  color: #555; 
+  font-weight: bold; 
+  margin-bottom: 20px; 
 }
 
-/* Style for the motivational quote */
 .dashboard-content p {
-  font-size: 50px; /* Increase font size for the quote */
-  color: #fff; /* White color for the quote text */
-  font-style: italic; /* Italicize the quote text */
-  font-weight: bold; /* Make the quote text bold */
-  max-width: 80%; /* Limit the width of the quote */
-  margin: 0 auto; /* Center the quote horizontally */
-  line-height: 1.5; /* Add space between lines */
-  font-family: 'Georgia', serif; /* Use an elegant font */
+  font-size: 50px; 
+  color: #fff; 
+  font-style: italic; 
+  font-weight: bold; 
+  max-width: 80%; 
+  margin: 0 auto; 
+  line-height: 1.5; 
+  font-family: 'Georgia', serif; 
 }
 
-/* Rhombuses on the sides */
 .rhombus {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 120px; /* Width of the rhombus */
-  background: #f39c12; /* Mustard color */
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Create rhombus shape */
+  width: 120px; 
+  background: #f39c12; 
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); 
 }
 
-/* Left rhombus */
 .rhombus-left {
   left: 0;
-  transform: translateX(-50%); /* Center the rhombus on the left side */
+  transform: translateX(-50%); 
 }
 
-/* Right rhombus */
 .rhombus-right {
   right: 0;
-  transform: translateX(50%); /* Center the rhombus on the right side */
+  transform: translateX(50%); 
 }
+
+.event-titles {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.all-events-button {
+  background-color: #f39c12;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.all-events-button:hover {
+  background-color: #e08f00; 
+}
+
+.calendar-title{
+  background-color: #f39c12;
+  color: white;
+}
+
+.new-event-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-event-form {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 400px; 
+}
+
+.newEventTitle{
+  color: #e08f00;
+}
+
+.new-event-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-event-form {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  box-sizing: border-box; 
+}
+
+.new-event-form div {
+  margin-bottom: 15px; 
+}
+
+.new-event-form label {
+  display: block; 
+  margin-bottom: 5px; 
+  font-weight: bold; 
+}
+
+.new-event-form input {
+  width: 100%; 
+  padding: 8px; 
+  border: 1px solid #ddd; 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+}
+
+.new-event-form button {
+  background-color: #f39c12; 
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px; 
+  cursor: pointer;
+}
+
+.new-event-form button.save-button {
+  margin-right: 20px; 
+}
+
+.new-event-form button:hover {
+  background-color: #e68a00; 
+}
+
