@@ -5,6 +5,7 @@ const NewEvent = ({ date, onClose, onSave }) => {
   const [description, setDescription] = useState('');
   const [time, setTime] = useState('');
   const username = "currentLoggedInUser"; 
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -62,8 +63,4 @@ const NewEvent = ({ date, onClose, onSave }) => {
 };
 
 export default NewEvent;
-
-
-
-
 

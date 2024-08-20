@@ -4,29 +4,41 @@ import 'react-calendar/dist/Calendar.css';
 import NewEvent from './NewEvent'; 
 import { useNavigate } from 'react-router-dom';
 
+
+const useClickTimeout = (delay) => {
+  const [clickTimeout, setClickTimeout] = useState(null);
+
+  const handleClick = (callback) => {
+    if (clickTimeout) {
+      clearTimeout(clickTimeout);
+      setClickTimeout(null);
+      callback();
+    } else {
+      const timeoutId = setTimeout(() => {
+        setClickTimeout(null);
+      }, delay);
+      setClickTimeout(timeoutId);
+    }
+  };
+
+  return handleClick;
+};
+
 const MyCalendar = () => {
   const [date, setDate] = useState(new Date());
   const [isFormOpen, setIsFormOpen] = useState(false); 
   const [selectedDate, setSelectedDate] = useState(null); 
   const [events, setEvents] = useState([]); 
-  const [clickTimeout, setClickTimeout] = useState(null); 
-  const navigate = useNavigate(); 
+
+  const navigate = useNavigate();
+  const handleClickTimeout = useClickTimeout(300); // Set delay for double-click
 
   const handleDateChange = (newDate) => {
     setDate(newDate);
   };
 
   const handleDayClick = (value) => {
-    if (clickTimeout) {
-      clearTimeout(clickTimeout);
-      setClickTimeout(null);
-      handleDayDoubleClick(value);
-    } else {
-      const timeoutId = setTimeout(() => {
-        setClickTimeout(null);
-      }, 300); 
-      setClickTimeout(timeoutId);
-    }
+    handleClickTimeout(() => handleDayDoubleClick(value));
   };
 
   const handleDayDoubleClick = (value) => {
@@ -35,7 +47,7 @@ const MyCalendar = () => {
   };
 
   const handleSaveEvent = (newEvent) => {
-    setEvents([...events, newEvent]); 
+    setEvents((prevEvents) => [...prevEvents, newEvent]); 
     setIsFormOpen(false);
     setSelectedDate(null);
   };
@@ -54,7 +66,7 @@ const MyCalendar = () => {
     return dayEvents.length > 0 ? (
       <div className="event-titles">
         {dayEvents.slice(0, 2).map((event, index) => (
-          <div key={index} className="event-title" style={{ fontSize: 'small', backgroundColor:' #e0f7fa'}}>
+          <div key={index} className="event-title" style={{ fontSize: 'small', backgroundColor:' #e0f7fa' }}>
             {event.title}
           </div>
         ))}
