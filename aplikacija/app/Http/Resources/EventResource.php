@@ -17,7 +17,7 @@ class EventResource extends JsonResource
             'start_time' => $this->start_time,
             'end_time' => $this->end_time,
             'user_id' => new UserResource($this->whenLoaded('user')),
-            'category_id' => new EventCategoryResource($this->whenLoaded('category')),
+            'category_id' => new EventResource($this->whenLoaded('category')),
         ];
     }
 }
