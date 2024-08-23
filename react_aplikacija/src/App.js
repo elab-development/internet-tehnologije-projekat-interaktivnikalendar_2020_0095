@@ -8,6 +8,7 @@ import AllEvents from './components/AllEvents';
 import Logout from './components/Logout';
 import CalendarPage from './components/Calendar'; 
 import './App.css';
+import Registration from './components/Registration';
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
           <Route path="/all-events" element={<AllEvents />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/calendar" element={<CalendarPage />} /> 
+          <Route path="/registration" element={<Registration />} />
+          
         </Routes>
       </div>
     </Router>
