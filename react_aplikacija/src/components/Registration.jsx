@@ -1,21 +1,37 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios  from 'axios';
 
 const Registration = () => {
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
-  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('User');
+  const isHomePage = window.location.pathname === '/register';
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const registrationData = {
+      name,
+      surname,
+      email,
+      password,
+      role,
+    };
     //Ovde kucamo logiku za registraciju
+    axios.post("http://127.0.0.1:8000/api/register", registrationData)
+    .then(response => {
+      console.log(response.data);
+      navigate('/login');
+    }) 
+    .catch(error => {
+      console.log(error.response.data); // This will show validation errors from the backend
+    });
+    /*navigate('/login');*/
 
-    navigate('/login');
   };
 
   return (
@@ -44,16 +60,6 @@ const Registration = () => {
             />
           </div>
           <div className="input-group">
-            <label className="input-label">Username:</label>
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              className="input-field"
-              required
-            />
-          </div>
-          <div className="input-group">
             <label className="input-label">Email:</label>
             <input
               type="email"
@@ -74,16 +80,21 @@ const Registration = () => {
             />
           </div>
           <div className="input-group">
-            <label className="input-label">Role:</label>
-            <select
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-              className="input-field"
-            >
-              <option value="Admin">Admin</option>
-              <option value="Manager">Manager</option>
-              <option value="User">User</option>
-            </select>
+          {isHomePage ? (
+                <label>
+                    Role:
+                    <select value={role} onChange={(e) => setRole(e.target.value)}>
+                        <option value="Admin">Manager</option>
+                    </select>
+                </label>
+            ) : (
+                <label>
+                    Role:
+                    <select value={role} onChange={(e) => setRole(e.target.value)}>
+                    <option value="Admin">Admin</option>
+                    </select>
+                </label>
+            )}
           </div>
           <button type="submit" className="submit-button">Register</button>
         </form>
@@ -93,3 +104,5 @@ const Registration = () => {
 };
 
 export default Registration;
+
+
