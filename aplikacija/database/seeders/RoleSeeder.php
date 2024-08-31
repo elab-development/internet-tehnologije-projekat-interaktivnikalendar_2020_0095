@@ -16,23 +16,5 @@ class RoleSeeder extends Seeder
         Role::create(['name' => 'Admin']);
         Role::create(['name' => 'Manager']);
         Role::create(['name' => 'User']);
-
-        /*
-        $roles = [
-            ['name' => 'Administrator'],
-            ['name' => 'Manager'],
-            ['name' => 'Team Leader'],
-            ['name' => 'Employee'],
-            ['name' => 'HR'],
-            ['name' => 'Project Manager'],
-            ['name' => 'IT Support'],
-            ['name' => 'Client'],
-            ['name' => 'Intern'],
-            ['name' => 'Finance']
-        ];
- 
-        DB::table('roles')->insert($roles);
-        
-        Ovo smo dodale ali nam mozda nam ne treba*/
     }
 }

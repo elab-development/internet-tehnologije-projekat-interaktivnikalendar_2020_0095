@@ -5,14 +5,22 @@ import { LuLogOut } from "react-icons/lu";
 import { FaListCheck } from "react-icons/fa6";
 
 
-const DashboardNavBar = () => {
+const DashboardNavBar = ({ userRole }) => {
   return (
     <nav className="navBar">
       <Link to="/my-calendar" className="navBarItem"><RxCalendar /><b>My Calendar</b></Link>
       <Link to="/all-events" className="navBarItem"><FaListCheck  /><b>All Events</b></Link>
+      {userRole === 'Admin' && (
+          <li>
+            <Link to="/register">User Registration</Link>
+          </li>
+        )}
       <Link to="/logout" className="navBarItem"><LuLogOut /><b>Logout</b></Link>
     </nav>
   );
 }
 
 export default DashboardNavBar;
+
+
+

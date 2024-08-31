@@ -24,6 +24,8 @@ Route::get('/users', [UserController::class, 'index']); // Prikazi sve korisnike
 Route::get('/users/{id}', [UserController::class, 'show']); // Prikazi jednog korisnika
 Route::put('/users/{id}', [UserController::class, 'update']); // Update za jednog korisnika
 Route::delete('/users/{id}', [UserController::class, 'destroy']); // Brisanje jednog korisnika
+//Route::get('/api/users/{email}', [UserController::class, 'getUserByEmail']);
+
 
 // Event routes
 Route::get('/events/{event}', [EventController::class, 'show']);

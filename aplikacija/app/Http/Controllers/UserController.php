@@ -56,5 +56,16 @@ class UserController extends Controller
         $user->delete();
         return response()->json($user, 200);
     }
+
+    /*public function getUserByEmail($email)
+    {
+        $user = User::where('email', $email)->first();
+        if ($user) {
+            return response()->json(['role' => $user->role]);
+        }
+        return response()->json(['role' => null], 404);
+    }*/
+    
+
 }
 
