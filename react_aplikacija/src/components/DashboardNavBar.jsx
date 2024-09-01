@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { CiBoxList } from "react-icons/ci";
+import { RiLogoutBoxRLine } from "react-icons/ri";
+import { FiUserPlus } from "react-icons/fi";
+import { FaCalendarAlt } from "react-icons/fa";
 
 const DashboardNavBar = () => {
   const [userRole, setUserRole] = useState('');
@@ -24,13 +28,27 @@ const DashboardNavBar = () => {
   }, []);
 
   return (
-    <nav className="dashboard-navbar">
-      <Link to="/my-calendar">My Calendar</Link>
-      <Link to="/all-events">All Events</Link>
+    <nav className="navbar-d">
+      <div className="navbar-container-d">
+        <div className="navbar-links-d">
+          <div className="navBar-d">
+          <Link to="/my-calendar" className="navBarItem-d" ><FaCalendarAlt />
+          <span style={{ fontWeight: 'bold' }}> My Calendar</span></Link>
+
+      <Link to="/all-events" className="navBarItem-d"><CiBoxList />
+      <span style={{ fontWeight: 'bold' }}> All Events</span></Link>
+
       {userRole === 'Admin' && (
-        <Link to="/dashboard/registration">User Registration</Link>
+        <Link to="/dashboard/registration" className="navBarItem-d"><FiUserPlus />
+        <span style={{ fontWeight: 'bold' }}> User Registration</span></Link>
       )}
-      <Link to="/logout">Logout</Link>
+      <Link to="/logout" className="navBarItem-d"><RiLogoutBoxRLine />
+      <span style={{ fontWeight: 'bold' }}> Logout</span></Link>
+
+          </div>
+      
+      </div>
+      </div>
     </nav>
   );
 };

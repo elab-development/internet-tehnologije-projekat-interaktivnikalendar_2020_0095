@@ -79,9 +79,6 @@ class EventController extends Controller
 
     /**
      * Get all events for a user by their email.
-     *
-     * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
      */
     public function getEventsByUserEmail(Request $request)
     {

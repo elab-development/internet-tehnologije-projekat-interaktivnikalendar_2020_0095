@@ -29,9 +29,6 @@ Route::post('/users/by-email', [UserController::class, 'getUserByEmail']);
 
 // Event routes
 Route::get('/events/{event}', [EventController::class, 'show']);
-Route::post('/events', [EventController::class, 'store']);
-Route::put('/events/{event}', [EventController::class, 'update']);
-Route::delete('/events/{id}', [EventController::class, 'destroy']);
 
 //DODATA RUTA 
 Route::post('/events/by-email', [EventController::class, 'getEventsByUserEmail']);

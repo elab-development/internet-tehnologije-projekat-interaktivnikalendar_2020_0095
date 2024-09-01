@@ -42,65 +42,73 @@ const Registration = () => {
   };
 
   return (
-    <div className="registration">
-      <h2>Registration</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name:</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Surname:</label>
-          <input
-            type="text"
-            value={surname}
-            onChange={(e) => setSurname(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Role:</label>
-          <select
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-            disabled={location.pathname === '/dashboard/registration'}
-          >
-            {location.pathname === '/dashboard/registration' ? (
-              <option value="Manager">Manager</option>
-            ) : (
-              <>
-                <option value="Admin">Admin</option>
-              </>
-            )}
-          </select>
-        </div>
-        <button type="submit">Register</button>
-      </form>
+    <div className="registration-page">
+      <div className="registration-form">
+        <h2 className="registration-title">Registration</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="input-group">
+            <label className="input-label">Name:</label>
+            <input
+              type="text"
+              className="input-field"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label className="input-label">Surname:</label>
+            <input
+              type="text"
+              className="input-field"
+              value={surname}
+              onChange={(e) => setSurname(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label className="input-label">Email:</label>
+            <input
+              type="email"
+              className="input-field"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label className="input-label">Password:</label>
+            <input
+              type="password"
+              className="input-field"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label className="input-label">Role:</label>
+            <select
+              className="input-field"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              disabled={location.pathname === '/dashboard/registration'}
+            >
+              {location.pathname === '/dashboard/registration' ? (
+                <option value="Manager">Manager</option>
+              ) : (
+                <>
+                  <option value="Admin">Admin</option>
+                </>
+              )}
+            </select>
+          </div>
+          <button type="submit" className="submit-button">Register</button>
+        </form>
+      </div>
     </div>
   );
 };
 
 export default Registration;
+

@@ -2,7 +2,9 @@
   text-align: center;
 }
 
-.navBar {
+/*NAVBAR*/
+
+.navBar, .navbar-d {
   background-color: #5da8a0;
   padding: 10px;
   display: flex;
@@ -10,7 +12,7 @@
   align-items: center;
 }
  
-.navBarItem {
+.navBarItem, .navBarItem-d {
   color: rgb(255, 255, 255);
   text-decoration: none;
   padding: 10px 20px;
@@ -18,18 +20,18 @@
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
  
-.navBarItem:hover {
+.navBarItem:hover, .navBarItem-d:hover {
   background-color: #f39c12;
   transform: scale(1.05);
   border-radius: 5px;
 }
  
 @media (max-width: 768px) {
-  .navBar {
+  .navBar, .navBar-d{
     flex-direction: column;
   }
  
-  .navBarItem {
+  .navBarItem, .navBarItem-d {
     margin: 5px 0;
     width: 100%;
     text-align: center;
@@ -82,8 +84,6 @@ body, html {
   align-items: center;
 }
  
-
-
 .calendar-container {
   display: flex;
   justify-content: center;
@@ -169,6 +169,7 @@ body, html {
   transform: translateX(50%); 
 }
 
+/*ALL EVENTS BUTTON*/
 .event-titles {
   display: flex;
   flex-direction: column;
@@ -201,6 +202,8 @@ body, html {
   background-color: #f39c12;
   color: white;
 }
+
+/*NEW EVENT*/
 
 .new-event-overlay {
   position: fixed;
@@ -282,7 +285,7 @@ body, html {
   background-color: #e68a00; 
 }
 
-
+/*ALL EVENTS*/
 
 .all-events-container {
   padding: 20px;
@@ -359,7 +362,7 @@ body, html {
   cursor: pointer;
 }
 
-/* Existing login form styles */
+/* LOGIN FORM */
 .login-page, .registration-page {
   background-color: #5da8a0; 
   min-height: 100vh; 
@@ -421,41 +424,7 @@ body, html {
   }
 }
 
-
-.all-events {
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-.events-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  max-height: 680px; /* Adjust this height as needed */
-  overflow-y: auto; /* Adds vertical scrollbar if needed */
-  border: 1px solid #ccc; /* Optional: adds a border around the list */
-}
-
-.event-item {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-.event-item:last-child {
-  border-bottom: none;
-}
-
-.event-date,
-.event-title,
-.event-description,
-.event-time {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.event-checkbox {
-  margin-left: 10px;
-}
+/*GENERAL EVENTS*/
 
 .general-events {
   padding: 20px;
@@ -466,35 +435,4 @@ body, html {
   margin-bottom: 20px;
 }
 
-.events-list {
-  list-style-type: none;
-  padding: 0;
-}
 
-.event-item {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-}
-
-.event-details {
-  display: flex;
-  flex-direction: column;
-}
-
-.event-date {
-  font-weight: bold;
-}
-
-.event-title {
-  font-size: 18px;
-}
-
-.event-description {
-  font-size: 14px;
-}
-
-.event-time {
-  color: #666;
-}
