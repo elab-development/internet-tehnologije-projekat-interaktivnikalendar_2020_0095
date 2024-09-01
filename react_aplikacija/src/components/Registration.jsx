@@ -30,7 +30,6 @@ const Registration = () => {
     .catch(error => {
       console.log(error.response.data); // This will show validation errors from the backend
     });
-    /*navigate('/login');*/
 
   };
 
@@ -213,3 +212,4 @@ const Registration = () => {
 };
 
 export default Registration;*/
+
