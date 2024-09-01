@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { MdOutlinePersonAdd } from "react-icons/md";
 import { CiBoxList } from "react-icons/ci";
 
-
 const NavBar = () => {
   return (
     <nav className="navbar">
@@ -17,15 +16,15 @@ const NavBar = () => {
             </Link>
 
             <Link to="/registration" className="navBarItem">
-            <MdOutlinePersonAdd /> <b>Registration</b>
+              <MdOutlinePersonAdd /> <b>Registration</b>
             </Link>
 
             <Link to="/calendar" className="navBarItem">
               <RxCalendar /> <b>Calendar</b>
             </Link>
 
-            <Link to="/all-events" className="navBarItem">
-            <CiBoxList /> <b>General events</b>
+            <Link to="/general-events" className="navBarItem">
+              <CiBoxList /> <b>General Events</b>
             </Link>
 
           </div>

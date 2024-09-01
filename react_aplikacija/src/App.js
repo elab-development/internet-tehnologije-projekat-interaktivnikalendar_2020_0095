@@ -44,6 +44,7 @@ import Logout from './components/Logout';
 import CalendarPage from './components/Calendar'; 
 import './App.css';
 import Registration from './components/Registration';
+import GeneralEvents from './components/GeneralEvents';
 
 function App() {
   const [userRole, setUserRole] = useState(''); // State to store the user's role
@@ -75,6 +76,7 @@ function App() {
           <Route path="/logout" element={<Logout />} />
           <Route path="/calendar" element={<CalendarPage />} /> 
           <Route path="/registration" element={<Registration />} />
+          <Route path="/general-events" element={<GeneralEvents />} />
         </Routes>
       </div>
     </Router>

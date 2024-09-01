@@ -456,3 +456,45 @@ body, html {
 .event-checkbox {
   margin-left: 10px;
 }
+
+.general-events {
+  padding: 20px;
+}
+
+.generalEventsTitle {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.events-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.event-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.event-date {
+  font-weight: bold;
+}
+
+.event-title {
+  font-size: 18px;
+}
+
+.event-description {
+  font-size: 14px;
+}
+
+.event-time {
+  color: #666;
+}
