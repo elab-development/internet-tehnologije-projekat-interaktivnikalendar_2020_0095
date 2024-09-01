@@ -103,5 +103,16 @@ class EventController extends Controller
 
         return EventResource::collection($events);
     }
+
+    public function getEventsByCategory(Request $request)
+{
+    $category = $request->input('category');
+
+    // Fetch events by category
+    $events = Event::where('category_id', $category)->get();
+
+    return response()->json(['data' => $events]);
+}
+
 }
 

@@ -3,7 +3,7 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 import { RxCalendar } from "react-icons/rx";
 import { Link } from 'react-router-dom';
 import { MdOutlinePersonAdd } from "react-icons/md";
-
+import { CiBoxList } from "react-icons/ci";
 
 
 const NavBar = () => {
@@ -22,6 +22,10 @@ const NavBar = () => {
 
             <Link to="/calendar" className="navBarItem">
               <RxCalendar /> <b>Calendar</b>
+            </Link>
+
+            <Link to="/all-events" className="navBarItem">
+            <CiBoxList /> <b>General events</b>
             </Link>
 
           </div>
