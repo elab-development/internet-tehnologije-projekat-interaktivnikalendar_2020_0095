@@ -1,215 +1,106 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios  from 'axios';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
 const Registration = () => {
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState('Admin');
-  const isHomePage = window.location.pathname === '/register';
+  const [role, setRole] = useState('Admin'); // Default to Admin
+  const location = useLocation();
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    console.log('Current path:', location.pathname); // Debugging line
 
-  const handleSubmit = (e) => {
+    // Determine role based on the current URL
+    if (location.pathname === '/dashboard/registration') {
+      setRole('Manager');
+    } 
+    if (location.pathname === '/') {
+      setRole('Admin');
+    } 
+  }, [location.pathname]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const registrationData = {
-      name,
-      surname,
-      email,
-      password,
-      role,
-    };
-    //Ovde kucamo logiku za registraciju
-    axios.post("http://127.0.0.1:8000/api/register", registrationData)
-    .then(response => {
-      console.log(response.data);
-      navigate('/login');
-    }) 
-    .catch(error => {
-      console.log(error.response.data); // This will show validation errors from the backend
-    });
+    try {
+      const registrationData = {
+        name,
+        surname,
+        email,
+        password,
+        role,
+      };
 
+      await axios.post('http://localhost:8000/api/register', registrationData);
+      alert('User registered successfully');
+    } catch (error) {
+      console.error('Error registering user:', error);
+      alert('Failed to register user');
+    }
   };
 
   return (
-    <div className="registration-page">
-      <div className="registration-form">
-        <h2 className="registration-title">Register</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <label className="input-label">Name:</label>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="input-field"
-              required
-            />
-          </div>
-          <div className="input-group">
-            <label className="input-label">Surname:</label>
-            <input
-              type="text"
-              value={surname}
-              onChange={(e) => setSurname(e.target.value)}
-              className="input-field"
-              required
-            />
-          </div>
-          <div className="input-group">
-            <label className="input-label">Email:</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="input-field"
-              required
-            />
-          </div>
-          <div className="input-group">
-            <label className="input-label">Password:</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="input-field"
-              required
-            />
-          </div>
-          <div className="input-group">
-          {isHomePage ? (
-                <label>
-                    Role:
-                    <select value={role} onChange={(e) => setRole(e.target.value)}>
-                        <option value="Admin">Manager</option>
-                    </select>
-                </label>
+    <div className="registration">
+      <h2>Registration</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Name:</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Surname:</label>
+          <input
+            type="text"
+            value={surname}
+            onChange={(e) => setSurname(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Email:</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Password:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Role:</label>
+          <select
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+            disabled={location.pathname === '/dashboard/registration'}
+          >
+            {location.pathname === '/dashboard/registration' ? (
+              <option value="Manager">Manager</option>
             ) : (
-                <label>
-                    Role:
-                    <select value={role} onChange={(e) => setRole(e.target.value)}>
-                    <option value="Admin">Admin</option>
-                    </select>
-                </label>
+              <>
+                <option value="Admin">Admin</option>
+              </>
             )}
-          </div>
-          <button type="submit" className="submit-button">Register</button>
-        </form>
-      </div>
+          </select>
+        </div>
+        <button type="submit">Register</button>
+      </form>
     </div>
   );
 };
 
 export default Registration;
-
-
-/*import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-const isHomePage = window.location.pathname === '/register';
-
-const Registration = () => {
-  const [name, setName] = useState('');
-  const [surname, setSurname] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [role, setRole] = useState(''); // No default value
-
-  const navigate = useNavigate();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // Create an object containing all registration data
-    const registrationData = {
-      name,
-      surname,
-      email,
-      password,
-      role,
-    };
-
-    try {
-      // Send the registration data to your backend
-      await axios.post("http://127.0.0.1:8000/api/register", registrationData);
-
-      // Redirect to the login page upon successful registration
-      navigate('/login');
-    } catch (error) {
-      console.error("There was an error during registration!", error);
-    }
-  };
-
-  return (
-    <div className="registration-page">
-      <div className="registration-form">
-        <h2 className="registration-title">Register</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <label className="input-label">Name:</label>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="input-field"
-              required
-            />
-          </div>
-          <div className="input-group">
-            <label className="input-label">Surname:</label>
-            <input
-              type="text"
-              value={surname}
-              onChange={(e) => setSurname(e.target.value)}
-              className="input-field"
-              required
-            />
-          </div>
-          <div className="input-group">
-            <label className="input-label">Email:</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="input-field"
-              required
-            />
-          </div>
-          <div className="input-group">
-            <label className="input-label">Password:</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="input-field"
-              required
-            />
-          </div>
-          <div className="input-group">
-          {isHomePage ? (
-                <label>
-                    Role:
-                    <select value={role} onChange={(e) => setRole(e.target.value)}>
-                        <option value="Admin">Manager</option>
-                    </select>
-                </label>
-            ) : (
-                <label>
-                    Role:
-                    <select value={role} onChange={(e) => setRole(e.target.value)}>
-                    <option value="Admin">Admin</option>
-                    </select>
-                </label>
-            )}
-          </div>
-          <button type="submit" className="submit-button">Register</button>
-        </form>
-      </div>
-    </div>
-  );
-};
-
-export default Registration;*/
-

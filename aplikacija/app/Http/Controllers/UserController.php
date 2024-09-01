@@ -57,14 +57,24 @@ class UserController extends Controller
         return response()->json($user, 200);
     }
 
-    /*public function getUserByEmail($email)
+    public function getUserByEmail(Request $request)
     {
-        $user = User::where('email', $email)->first();
-        if ($user) {
-            return response()->json(['role' => $user->role]);
+        // Validate the email input
+        $request->validate([
+            'email' => 'required|email',
+        ]);
+
+        // Find the user by email
+        $user = User::where('email', $request->input('email'))->first();
+
+        // If user not found, return an error response
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
         }
-        return response()->json(['role' => null], 404);
-    }*/
+
+        // Return the user details
+        return response()->json($user);
+    }
     
 
 }

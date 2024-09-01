@@ -1,26 +1,43 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { RxCalendar } from "react-icons/rx";
-import { LuLogOut } from "react-icons/lu";
-import { FaListCheck } from "react-icons/fa6";
+import axios from 'axios';
 
+const DashboardNavBar = () => {
+  const [userRole, setUserRole] = useState('');
 
-const DashboardNavBar = ({ userRole }) => {
+  useEffect(() => {
+    const fetchUserRole = async () => {
+      try {
+        const email = localStorage.getItem('userEmail');
+        const response = await axios.post('http://localhost:8000/api/users/by-email', 
+          { email }, 
+          { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
+        );
+
+        setUserRole(response.data.role); // Assuming response.data.role contains the role of the user
+      } catch (error) {
+        console.error('Error fetching user role:', error);
+      }
+    };
+
+    fetchUserRole();
+  }, []);
+
   return (
-    <nav className="navBar">
-      <Link to="/my-calendar" className="navBarItem"><RxCalendar /><b>My Calendar</b></Link>
-      <Link to="/all-events" className="navBarItem"><FaListCheck  /><b>All Events</b></Link>
+    <nav className="dashboard-navbar">
+      <Link to="/my-calendar">My Calendar</Link>
+      <Link to="/all-events">All Events</Link>
       {userRole === 'Admin' && (
-          <li>
-            <Link to="/register">User Registration</Link>
-          </li>
-        )}
-      <Link to="/logout" className="navBarItem"><LuLogOut /><b>Logout</b></Link>
+        <Link to="/dashboard/registration">User Registration</Link>
+      )}
+      <Link to="/logout">Logout</Link>
     </nav>
   );
-}
+};
 
 export default DashboardNavBar;
+
+
 
 
 
