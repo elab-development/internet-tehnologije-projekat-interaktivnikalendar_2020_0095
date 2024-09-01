@@ -5,11 +5,22 @@ const Logout = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Ovde možemo obrisati podatke o sesiji, kao što je token
-    localStorage.removeItem('authToken'); // Primer, ako koristimo localStorage za autentifikaciju
-    
-    // Preusmeravanje na stranicu za prijavu
-    navigate('/');
+    const performLogout = async () => {
+      try {
+        // Remove token from local storage
+        localStorage.removeItem('token'); // Assuming the token is stored under 'token'
+
+        // Notify the user
+        alert('Successfully logged out');
+
+        // Redirect to the login page
+        navigate('/');
+      } catch (error) {
+        console.error('Error during logout:', error);
+      }
+    };
+
+    performLogout();
   }, [navigate]);
 
   return (
