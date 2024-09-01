@@ -33,6 +33,12 @@ Route::post('/events', [EventController::class, 'store']);
 Route::put('/events/{event}', [EventController::class, 'update']);
 Route::delete('/events/{id}', [EventController::class, 'destroy']);
 
+//DODATA RUTA 
+Route::post('/events/by-email', [EventController::class, 'getEventsByUserEmail']);
+
+
+
+
 
 // Event Category routes
 Route::get('/event-categories', [EventCategoryController::class, 'index']); // Prikaz svih kategorija dogadjaja
