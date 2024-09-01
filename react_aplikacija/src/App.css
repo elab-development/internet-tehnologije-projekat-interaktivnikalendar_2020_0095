@@ -420,3 +420,39 @@ body, html {
     max-width: 90%; 
   }
 }
+
+
+.all-events {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.events-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: 680px; /* Adjust this height as needed */
+  overflow-y: auto; /* Adds vertical scrollbar if needed */
+  border: 1px solid #ccc; /* Optional: adds a border around the list */
+}
+
+.event-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.event-item:last-child {
+  border-bottom: none;
+}
+
+.event-date,
+.event-title,
+.event-description,
+.event-time {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.event-checkbox {
+  margin-left: 10px;
+}
