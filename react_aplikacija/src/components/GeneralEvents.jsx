@@ -9,7 +9,7 @@ const GeneralEvents = () => {
     const fetchGeneralEvents = async () => {
       try {
         const response = await axios.post('http://localhost:8000/api/events/by-category', {
-          category: 5 // 'General' category ID
+          category: 4 // 'General' category ID
         });
         if (response.data && Array.isArray(response.data.data)) {
           setEvents(response.data.data);
