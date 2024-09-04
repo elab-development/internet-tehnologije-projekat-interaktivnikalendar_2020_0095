@@ -141,7 +141,7 @@ body, html {
 
 .dashboard-content p {
   font-size: 50px; 
-  color: #fff; 
+color: white;
   font-style: italic; 
   font-weight: bold; 
   max-width: 80%; 
@@ -435,4 +435,34 @@ body, html {
   margin-bottom: 20px;
 }
 
+/*DODATO*/
 
+:root {
+  --light-bg: #5da8a0;
+  --light-text: #000000;
+  --dark-bg: #333333;
+  --dark-text: #000000;
+}
+
+[data-theme='light'] {
+  --bg-color: var(--light-bg);
+  --text-color: var(--light-text);
+}
+
+[data-theme='dark'] {
+  --bg-color: var(--dark-bg);
+  --text-color: var(--dark-text);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  cursor: pointer;
+}

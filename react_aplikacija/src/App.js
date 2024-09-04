@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 import LoginPage from './components/LoginPage';
 import DashboardPage from './components/DashboardPage';
@@ -7,10 +7,11 @@ import HomePage from './components/HomePage';
 import MyCalendar from './components/MyCalendar';
 import AllEvents from './components/AllEvents';
 import Logout from './components/Logout';
-import CalendarPage from './components/Calendar'; 
-import './App.css';
+import CalendarPage from './components/Calendar';
 import Registration from './components/Registration';
 import GeneralEvents from './components/GeneralEvents';
+import ThemeToggle from './components/ThemeToggle'; // 
+import './App.css'; // 
 
 function App() {
   const [userRole, setUserRole] = useState(''); // State to store the user's role
@@ -33,6 +34,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <ThemeToggle /> {/* Add the ThemeToggle component */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
@@ -51,6 +53,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
